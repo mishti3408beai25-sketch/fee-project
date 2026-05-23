@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noizzy – Feel the Beat</title>
+  <link rel="stylesheet" href="noizzy.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ░░ LOADING SCREEN ░░ -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">N</div>
+      <div class="loader-bars">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p>Loading Noizzy…</p>
+    </div>
+  </div>
+
+  <!-- ░░ AUTH MODAL ░░ -->
+  <div class="auth-overlay" id="authOverlay">
+    <div class="auth-modal" id="authModal">
+      <button class="auth-close" id="authClose"><i class="fa-solid fa-xmark"></i></button>
+      <div class="auth-logo">🎵 Noizzy</div>
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="loginTab" onclick="switchAuthTab('login')">Login</button>
+        <button class="auth-tab" id="signupTab" onclick="switchAuthTab('signup')">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <div class="auth-form" id="loginForm">
+        <h2>Welcome Back</h2>
+        <p class="auth-sub">Sign in to your Noizzy account</p>
+        <div class="auth-field">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" placeholder="Email address" id="loginEmail" autocomplete="off" />
+        </div>
+        <div class="auth-field">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" placeholder="Password" id="loginPassword" />
+          <button class="eye-toggle" onclick="togglePw('loginPassword',this)"><i class="fa-solid fa-eye"></i></button>
+        </div>
+        <button class="auth-btn" onclick="handleLogin()"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
+        <p class="auth-switch">Don't have an account? <span onclick="switchAuthTab('signup')">Sign Up</span></p>
+      </div>
+
+      <!-- Signup Form -->
+      <div class="auth-form hidden" id="signupForm">
+        <h2>Create Account</h2>
+        <p class="auth-sub">Join Noizzy for free</p>
+        <div class="auth-field">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" placeholder="Username" id="signupUsername" autocomplete="off" />
+        </div>
+        <div class="auth-field">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" placeholder="Email address" id="signupEmail" autocomplete="off" />
+        </div>
+        <div class="auth-field">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" placeholder="Password" id="signupPassword" />
+          <button class="eye-toggle" onclick="togglePw('signupPassword',this)"><i class="fa-solid fa-eye"></i></button>
+        </div>
+        <button class="auth-btn" onclick="handleSignup()"><i class="fa-solid fa-user-plus"></i> Sign Up</button>
+        <p class="auth-switch">Already have an account? <span onclick="switchAuthTab('login')">Login</span></p>
+      </div>
+
+      <div class="auth-toast" id="authToast"></div>
+    </div>
+  </div>
+
+  <!-- ░░ CREATE PLAYLIST MODAL ░░ -->
+  <div class="auth-overlay" id="createPlaylistOverlay">
+    <div class="auth-modal create-pl-modal" id="createPlaylistModal">
+      <button class="auth-close" onclick="closeCreatePlaylist()"><i class="fa-solid fa-xmark"></i></button>
+      <div class="auth-logo">🎵 New Playlist</div>
+      <div class="auth-form">
+        <h2>Create Playlist</h2>
+        <p class="auth-sub">Give your playlist a name</p>
+        <div class="auth-field">
+          <i class="fa-solid fa-list-music"></i>
+          <input type="text" placeholder="Playlist name…" id="newPlaylistName" maxlength="40" autocomplete="off" />
+        </div>
+        <div class="playlist-emoji-pick">
+          <span onclick="selectEmoji(this)">🔥</span><span onclick="selectEmoji(this)">🎉</span>
+          <span onclick="selectEmoji(this)">💙</span><span onclick="selectEmoji(this)">🌙</span>
+          <span onclick="selectEmoji(this)">⚡</span><span onclick="selectEmoji(this)">🎸</span>
+          <span onclick="selectEmoji(this)">🥁</span><span onclick="selectEmoji(this)">🎵</span>
+        </div>
+        <input type="hidden" id="newPlaylistEmoji" value="🎵" />
+        <button class="auth-btn" onclick="confirmCreatePlaylist()"><i class="fa-solid fa-plus"></i> Create Playlist</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ░░ ADD TO PLAYLIST MODAL ░░ -->
+  <div class="auth-overlay" id="addToPlOverlay">
+    <div class="auth-modal add-pl-modal" id="addToPlModal">
+      <button class="auth-close" onclick="closeAddToPlaylist()"><i class="fa-solid fa-xmark"></i></button>
+      <div class="auth-logo">🎵 Add to Playlist</div>
+      <div class="auth-form">
+        <h2 id="addToPlSongName">Song</h2>
+        <p class="auth-sub">Choose a playlist</p>
+        <div class="pl-list" id="plSelectList"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ░░ SIDEBAR ░░ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">🎵</span>
+      <span class="logo-text">Noizzy</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#home"      class="nav-link active" data-section="home">      <i class="fa-solid fa-house"></i>       <span>Home</span></a>
+      <a href="#songs"     class="nav-link"         data-section="songs">     <i class="fa-solid fa-music"></i>       <span>Songs</span></a>
+      <a href="#artists"   class="nav-link"         data-section="artists">   <i class="fa-solid fa-microphone"></i>  <span>Artists</span></a>
+      <a href="#playlists" class="nav-link"         data-section="playlists"> <i class="fa-solid fa-list"></i>        <span>Playlists</span></a>
+      <a href="#about"     class="nav-link"         data-section="about">     <i class="fa-solid fa-circle-info"></i> <span>About</span></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="sidebar-user" id="sidebarUser" style="display:none">
+        <i class="fa-solid fa-circle-user"></i>
+        <span id="sidebarUsername">User</span>
+        <button onclick="handleLogout()" title="Logout"><i class="fa-solid fa-right-from-bracket"></i></button>
+      </div>
+      <button class="sidebar-auth-btn" id="sidebarLoginBtn" onclick="openAuth()">
+        <i class="fa-solid fa-right-to-bracket"></i> <span>Login / Sign Up</span>
+      </button>
+      <button id="themeToggle" title="Toggle theme">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+        <span id="themeLabel">Dark Mode</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ░░ MOBILE TOPBAR ░░ -->
+  <header class="topbar">
+    <button class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></button>
+    <span class="topbar-logo">🎵 Noizzy</span>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button id="mobileAuthBtn" onclick="openAuth()" title="Login"><i class="fa-solid fa-user"></i></button>
+      <button id="themeToggleMobile" title="Toggle theme"><i class="fa-solid fa-moon" id="themeIconMobile"></i></button>
+    </div>
+  </header>
+
+  <!-- ░░ MAIN CONTENT ░░ -->
+  <main class="main-content">
+
+    <!-- Search bar -->
+    <div class="search-bar-wrap">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="searchInput" placeholder="Search songs, artists…" autocomplete="off" />
+      <button id="clearSearch" title="Clear"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <!-- Search results -->
+    <section id="searchResults" class="section hidden">
+      <h2 class="section-title">Search Results</h2>
+      <div class="songs-grid" id="searchResultsGrid"></div>
+    </section>
+
+    <!-- ── HOME ── -->
+    <section id="home" class="section active">
+      <div class="hero">
+        <div class="hero-text">
+          <h1>Feel Every<br/><span class="gradient-text">Beat.</span></h1>
+          <p>Stream unlimited music. Discover your next favourite track across Hindi, English, Punjabi &amp; Haryanvi.</p>
+          <button class="btn-primary" onclick="scrollToSection('songs')">
+            <i class="fa-solid fa-play"></i> Start Listening
+          </button>
+        </div>
+        <div class="hero-visual">
+          <div class="vinyl-outer">
+            <div class="vinyl-disc" id="heroVinyl">
+              <div class="vinyl-center"></div>
+            </div>
+          </div>
+          <div class="hero-waveform">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick categories -->
+      <div class="home-cats">
+        <h2 class="section-title">Browse Categories</h2>
+        <div class="cats-grid">
+          <div class="cat-card hindi"    onclick="filterByCategory('hindi')">  <span>🎶</span><p>Hindi</p></div>
+          <div class="cat-card english"  onclick="filterByCategory('english')"><span>🎸</span><p>English</p></div>
+          <div class="cat-card punjabi"  onclick="filterByCategory('punjabi')"><span>🥁</span><p>Punjabi</p></div>
+          <div class="cat-card haryanvi" onclick="filterByCategory('haryanvi')"><span>🪗</span><p>Haryanvi</p></div>
+        </div>
+      </div>
+
+      <!-- Featured -->
+      <div class="home-featured">
+        <h2 class="section-title">Featured Tracks</h2>
+        <div class="songs-grid" id="featuredGrid"></div>
+      </div>
+    </section>
+
+    <!-- ── SONGS ── -->
+    <section id="songs" class="section">
+      <div class="section-header">
+        <h2 class="section-title">All Songs</h2>
+        <div class="filter-tabs" id="filterTabs">
+          <button class="tab active" data-filter="all">All</button>
+          <button class="tab" data-filter="hindi">Hindi</button>
+          <button class="tab" data-filter="english">English</button>
+          <button class="tab" data-filter="punjabi">Punjabi</button>
+          <button class="tab" data-filter="haryanvi">Haryanvi</button>
+        </div>
+      </div>
+      <div class="songs-grid" id="songsGrid"></div>
+    </section>
+
+    <!-- ── ARTISTS ── -->
+    <section id="artists" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Artists</h2>
+        <button class="btn-back hidden" id="backFromArtist" onclick="showAllArtists()">
+          <i class="fa-solid fa-arrow-left"></i> All Artists
+        </button>
+      </div>
+      <div class="artists-grid" id="artistsGrid"></div>
+      <div id="artistSongsView" class="hidden">
+        <h3 class="artist-songs-title" id="artistSongsTitle"></h3>
+        <div class="songs-grid" id="artistSongsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ── PLAYLISTS ── -->
+    <section id="playlists" class="section">
+      <div class="section-header">
+        <h2 class="section-title">Playlists</h2>
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+          <button class="btn-create-pl" onclick="openCreatePlaylist()">
+            <i class="fa-solid fa-plus"></i> Create Playlist
+          </button>
+          <button class="btn-back hidden" id="backFromPlaylist" onclick="showAllPlaylists()">
+            <i class="fa-solid fa-arrow-left"></i> All Playlists
+          </button>
+        </div>
+      </div>
+      <div class="playlists-grid" id="playlistsGrid"></div>
+      <div id="playlistSongsView" class="hidden">
+        <h3 class="playlist-songs-title" id="playlistSongsTitle"></h3>
+        <div class="songs-grid" id="playlistSongsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section id="about" class="section">
+      <div class="about-wrap">
+        <div class="about-hero">
+          <h2 class="gradient-text">About Noizzy</h2>
+          <p class="about-sub">Your ultimate music streaming companion</p>
+        </div>
+        <div class="about-cards">
+          <div class="about-card"><i class="fa-solid fa-headphones-simple"></i><h3>Premium Sound</h3><p>Crystal clear audio across all genres — from Bollywood to beats.</p></div>
+          <div class="about-card"><i class="fa-solid fa-globe"></i><h3>Multi-language</h3><p>Hindi, English, Punjabi &amp; Haryanvi — all in one place.</p></div>
+          <div class="about-card"><i class="fa-solid fa-bolt"></i><h3>Instant Playback</h3><p>Zero buffering. Click &amp; play in milliseconds.</p></div>
+          <div class="about-card"><i class="fa-solid fa-heart"></i><h3>Curated Playlists</h3><p>Handpicked collections for every mood and moment.</p></div>
+        </div>
+        <div class="about-team">
+          <h3>Made with <span class="gradient-text">❤</span> by</h3>
+          <div class="team-names">
+            <span>Mishti</span><span>Tanisha</span><span>Yashika</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ░░ MUSIC PLAYER ░░ -->
+  <div class="player" id="player">
+    <div class="player-track">
+      <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop" alt="cover" id="playerImg" class="player-cover"/>
+      <div class="player-info">
+        <p class="player-song" id="playerSong">Select a song</p>
+        <p class="player-artist" id="playerArtist">—</p>
+      </div>
+      <button class="add-to-pl-btn" id="addToPlBtn" title="Add to playlist" onclick="openAddToPlaylist()">
+        <i class="fa-solid fa-circle-plus"></i>
+      </button>
+    </div>
+
+    <div class="player-controls-wrap">
+      <div class="player-controls">
+        <button id="shuffleBtn" title="Shuffle"><i class="fa-solid fa-shuffle"></i></button>
+        <button id="prevBtn"    title="Previous"><i class="fa-solid fa-backward-step"></i></button>
+        <button id="playBtn"    class="play-main" title="Play/Pause"><i class="fa-solid fa-play" id="playIcon"></i></button>
+        <button id="nextBtn"    title="Next"><i class="fa-solid fa-forward-step"></i></button>
+        <button id="repeatBtn"  title="Repeat"><i class="fa-solid fa-repeat"></i></button>
+      </div>
+      <div class="progress-wrap">
+        <span class="time" id="currentTime">0:00</span>
+        <div class="progress-bar" id="progressBar">
+          <div class="progress-fill" id="progressFill"></div>
+          <div class="progress-thumb" id="progressThumb"></div>
+        </div>
+        <span class="time" id="duration">0:00</span>
+      </div>
+    </div>
+
+    <div class="player-volume">
+      <i class="fa-solid fa-volume-high" id="volIcon"></i>
+      <input type="range" id="volumeSlider" min="0" max="100" value="80" />
+      <span class="vol-percent" id="volPercent">80%</span>
+    </div>
+
+    <audio id="audioEl"></audio>
+  </div>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-overlay" id="navOverlay" onclick="closeSidebar()"></div>
+
+  <script src="noizzy.js"></script>
+</body>
+</html>
