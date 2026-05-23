@@ -16,7 +16,7 @@ const SONGS = [
     artist: "Arijit Singh",
     category: "hindi",
     image: "https://i.scdn.co/image/ab67616d0000b2733be2eacadb3442ff6417c9d7",
-    audio: "/Users/mishti/Downloads/Tum Hi Ho - Djjohal.fm.mp3",
+    //audio: "/Users/mishti/Downloads/Tum Hi Ho - Djjohal.fm.mp3",
     
   },
   {
@@ -25,7 +25,7 @@ const SONGS = [
     artist: "Arijit Singh",
     category: "hindi",
     image: "https://c.saavncdn.com/103/Channa-Mereya-From-Ae-Dil-Hai-Mushkil-Hindi-2016-500x500.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const SONGS = [
     artist: "Arijit Singh",
     category: "hindi",
     image: "https://i.pinimg.com/736x/f6/7f/d3/f67fd38b97f1f7fefc47a4e10bbfb46c.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const SONGS = [
     artist: "Arijit Singh",
     category: "hindi",
     image: "https://i1.sndcdn.com/artworks-000222824094-vb9n41-t500x500.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
   },
 
   /* ══ HINDI — Anuv Jain ══ */
@@ -51,7 +51,7 @@ const SONGS = [
     artist: "Anuv Jain",
     category: "hindi",
     image: "https://i.pinimg.com/736x/5f/21/a3/5f21a3da043eab09b08dde47a0bcc807.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
   },
   {
     id: 6,
@@ -59,7 +59,7 @@ const SONGS = [
     artist: "Anuv Jain",
     category: "hindi",
     image: "https://c.saavncdn.com/945/Mishri-Hindi-2023-20230919173001-500x500.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"
   },
   {
     id: 7,
@@ -67,7 +67,7 @@ const SONGS = [
     artist: "Anuv Jain",
     category: "hindi",
     image: "https://c.saavncdn.com/266/Gul-Hindi-2021-20210706151615-500x500.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"
   },
   {
     id: 8,
@@ -75,7 +75,7 @@ const SONGS = [
     artist: "Anuv Jain",
     category: "hindi",
     image: "https://c.saavncdn.com/401/Jo-Tum-Mere-Ho-Hindi-2024-20240731053953-500x500.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
   },
 
   /* ══ ENGLISH — Taylor Swift ══ */
@@ -85,7 +85,7 @@ const SONGS = [
     artist: "Taylor Swift",
     category: "english",
     image: "https://i.pinimg.com/564x/ef/60/f0/ef60f01baa446bc57d292b28fc57f50f.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3"
   },
   {
     id: 10,
@@ -93,7 +93,7 @@ const SONGS = [
     artist: "Taylor Swift",
     category: "english",
     image: "https://upload.wikimedia.org/wikipedia/en/7/7c/Taylor_Swift_-_Blank_Space_%28Official_Single_Cover%29.png",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3"
   },
   {
     id: 11,
@@ -101,7 +101,7 @@ const SONGS = [
     artist: "Taylor Swift",
     category: "english",
     image: "https://upload.wikimedia.org/wikipedia/en/b/b9/Taylor_Swift_-_Anti-Hero.png",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3"
   },
   {
     id: 12,
@@ -109,7 +109,7 @@ const SONGS = [
     artist: "Taylor Swift",
     category: "english",
     image: "https://upload.wikimedia.org/wikipedia/en/thumb/0/01/Taylor_Swift_-_Love_Story.png/250px-Taylor_Swift_-_Love_Story.png",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3"
   },
 
   /* ══ PUNJABI — AP Dhillon ══ */
@@ -119,7 +119,7 @@ const SONGS = [
     artist: "AP Dhillon",
     category: "punjabi",
     image: "https://i.ytimg.com/vi/mZQH8CPQ-wo/maxresdefault.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3"
   },
   {
     id: 14,
@@ -127,7 +127,7 @@ const SONGS = [
     artist: "AP Dhillon",
     category: "punjabi",
     image: "https://c.saavncdn.com/890/Excuses-English-2021-20210930112054-500x500.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3"
   },
   {
     id: 15,
@@ -135,7 +135,7 @@ const SONGS = [
     artist: "AP Dhillon",
     category: "punjabi",
     image: "https://i.ytimg.com/vi/dpERuTFk8fw/maxresdefault.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3"
   },
   {
     id: 16,
@@ -143,7 +143,7 @@ const SONGS = [
     artist: "AP Dhillon",
     category: "punjabi",
     image: "https://c.saavncdn.com/300/Dil-Nu-Lofi-Punjabi-2022-20221108011931-500x500.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3"
   },
 
   /* ══ PUNJABI — Diljit Dosanjh ══ */
@@ -153,7 +153,7 @@ const SONGS = [
     artist: "Diljit Dosanjh",
     category: "punjabi",
     image: "https://i.scdn.co/image/ab67616d0000b273fb47bdcc34dd45740c7816d7",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
   },
   {
     id: 18,
@@ -161,7 +161,7 @@ const SONGS = [
     artist: "Diljit Dosanjh",
     category: "punjabi",
     image: "https://c.saavncdn.com/777/Ik-Kudi-Hindi-2023-20230718011832-500x500.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
   },
   {
     id: 19,
@@ -169,7 +169,7 @@ const SONGS = [
     artist: "Diljit Dosanjh",
     category: "punjabi",
     image: "https://c.saavncdn.com/810/Do-You-Know-Punjabi-2016-20240808172432-500x500.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
   },
 
   /* ══ PUNJABI — Karan Aujla ══ */
@@ -179,7 +179,7 @@ const SONGS = [
     artist: "Karan Aujla",
     category: "punjabi",
     image: "https://c.saavncdn.com/549/Softly-Slowed-Reverb-Punjabi-2023-20231027213519-500x500.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"
   },
   {
     id: 21,
@@ -187,7 +187,7 @@ const SONGS = [
     artist: "Karan Aujla",
     category: "punjabi",
     image: "https://c.saavncdn.com/500/Tauba-Tauba-Remix-Hindi-2024-20241010094005-500x500.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3"
   },
   {
     id: 22,
@@ -195,7 +195,7 @@ const SONGS = [
     artist: "Karan Aujla",
     category: "punjabi",
     image: "https://i.scdn.co/image/ab67616d0000b2739885ac12014e6ba429d2ad69",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3"
   },
   {
     id: 23,
@@ -203,7 +203,7 @@ const SONGS = [
     artist: "Karan Aujla",
     category: "punjabi",
     image: "https://i.scdn.co/image/ab67616d0000b2738d23f6fbacb44af144e34715",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3"
   },
 
   /* ══ HARYANVI — Dhanda Nyoliwala ══ */
@@ -213,7 +213,7 @@ const SONGS = [
     artist: "Dhanda Nyoliwala",
     category: "haryanvi",
     image: "https://c.saavncdn.com/414/Russian-Bandana-Lo-Fi-Hindi-2024-20241016121647-500x500.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3"
   },
   {
     id: 25,
@@ -221,7 +221,7 @@ const SONGS = [
     artist: "Dhanda Nyoliwala",
     category: "haryanvi",
     image: "https://c.saavncdn.com/843/Mia-Cara-Hindi-2024-20240626053306-500x500.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3"
   },
   {
     id: 26,
@@ -229,7 +229,7 @@ const SONGS = [
     artist: "Dhanda Nyoliwala",
     category: "haryanvi",
     image: "https://i.ytimg.com/vi/E7ergOnpO1Q/maxresdefault.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3"
   },
 
   /* ══ HARYANVI — Mitta Ror ══ */
@@ -239,7 +239,7 @@ const SONGS = [
     artist: "Mitta Ror",
     category: "haryanvi",
     image: "https://c.saavncdn.com/880/Winter-Meeting-Hindi-2025-20251225150355-500x500.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3"
   },
   {
     id: 28,
@@ -247,7 +247,7 @@ const SONGS = [
     artist: "Mitta Ror",
     category: "haryanvi",
     image: "https://c.saavncdn.com/034/Sheesha-Hindi-2024-20240913171750-500x500.jpg",
-    audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3"
+    //audio: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3"
   },
 ];
 
